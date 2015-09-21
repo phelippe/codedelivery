@@ -4,8 +4,50 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "5c6026b96e6fa11a641b51a6ba976f5e",
+    "hash": "9e1d272f6c47672f1fa8d8225218d51d",
     "packages": [
+        {
+            "name": "bestmomo/scafold",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bestmomo/scafold.git",
+                "reference": "7fdd5167252ef2c8dcca15917001c497e5551cda"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bestmomo/scafold/zipball/7fdd5167252ef2c8dcca15917001c497e5551cda",
+                "reference": "7fdd5167252ef2c8dcca15917001c497e5551cda",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "~5.1",
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Bestmomo\\Scafold\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylorotwell@gmail.com"
+                },
+                {
+                    "name": "Bestmomo",
+                    "email": "grandheretique@free.fr"
+                }
+            ],
+            "description": "To add scafold to Laravel 5.1",
+            "homepage": "http://github.com/bestmomo/scafold",
+            "time": "2015-09-16 22:29:25"
+        },
         {
             "name": "classpreloader/classpreloader",
             "version": "2.0.0",
@@ -217,6 +259,52 @@
             "time": "2014-12-20 21:24:13"
         },
         {
+            "name": "illuminate/html",
+            "version": "v5.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/illuminate/html.git",
+                "reference": "3d1009bb8e0f25720c914af5c1f4015dd373c9ef"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/illuminate/html/zipball/3d1009bb8e0f25720c914af5c1f4015dd373c9ef",
+                "reference": "3d1009bb8e0f25720c914af5c1f4015dd373c9ef",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/http": "~5.0",
+                "illuminate/session": "~5.0",
+                "illuminate/support": "~5.0",
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "5.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Illuminate\\Html\\": ""
+                },
+                "files": [
+                    "helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylorotwell@gmail.com"
+                }
+            ],
+            "time": "2015-01-01 16:31:18"
+        },
+        {
             "name": "jakub-onderka/php-console-color",
             "version": "0.1",
             "source": {
@@ -363,16 +451,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v5.1.16",
+            "version": "v5.1.17",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "e34dcc0c57e0f560248aec5128161256ff8bf4e1"
+                "reference": "415b5d824e15ee7cd18b8b23f96ae32b0b51d6a0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/e34dcc0c57e0f560248aec5128161256ff8bf4e1",
-                "reference": "e34dcc0c57e0f560248aec5128161256ff8bf4e1",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/415b5d824e15ee7cd18b8b23f96ae32b0b51d6a0",
+                "reference": "415b5d824e15ee7cd18b8b23f96ae32b0b51d6a0",
                 "shasum": ""
             },
             "require": {
@@ -487,24 +575,27 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2015-09-04 12:46:14"
+            "time": "2015-09-16 16:57:12"
         },
         {
             "name": "league/flysystem",
-            "version": "1.0.12",
+            "version": "1.0.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "7323424a9d39c24e597ed3f2144419dfbb52e086"
+                "reference": "76caed01a57527599b55919f0746104f288b3d56"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/7323424a9d39c24e597ed3f2144419dfbb52e086",
-                "reference": "7323424a9d39c24e597ed3f2144419dfbb52e086",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/76caed01a57527599b55919f0746104f288b3d56",
+                "reference": "76caed01a57527599b55919f0746104f288b3d56",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.4.0"
+            },
+            "conflict": {
+                "league/flysystem-sftp": "<1.0.6"
             },
             "require-dev": {
                 "ext-fileinfo": "*",
@@ -568,7 +659,7 @@
                 "sftp",
                 "storage"
             ],
-            "time": "2015-09-05 12:06:41"
+            "time": "2015-09-20 13:05:34"
         },
         {
             "name": "monolog/monolog",
@@ -739,16 +830,16 @@
         },
         {
             "name": "nikic/php-parser",
-            "version": "v1.4.0",
+            "version": "v1.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "196f177cfefa0f1f7166c0a05d8255889be12418"
+                "reference": "f78af2c9c86107aa1a34cd1dbb5bbe9eeb0d9f51"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/196f177cfefa0f1f7166c0a05d8255889be12418",
-                "reference": "196f177cfefa0f1f7166c0a05d8255889be12418",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/f78af2c9c86107aa1a34cd1dbb5bbe9eeb0d9f51",
+                "reference": "f78af2c9c86107aa1a34cd1dbb5bbe9eeb0d9f51",
                 "shasum": ""
             },
             "require": {
@@ -780,7 +871,67 @@
                 "parser",
                 "php"
             ],
-            "time": "2015-07-14 17:31:05"
+            "time": "2015-09-19 14:15:08"
+        },
+        {
+            "name": "prettus/l5-repository",
+            "version": "2.1.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/andersao/l5-repository.git",
+                "reference": "52395432b6df51d0e7c3de281198ad86d2975c6f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/andersao/l5-repository/zipball/52395432b6df51d0e7c3de281198ad86d2975c6f",
+                "reference": "52395432b6df51d0e7c3de281198ad86d2975c6f",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/config": "~5.0|~5.1",
+                "illuminate/console": "~5.0|~5.1",
+                "illuminate/database": "~5.0|~5.1",
+                "illuminate/filesystem": "~5.0|~5.1",
+                "illuminate/http": "~5.0|~5.1",
+                "illuminate/pagination": "~5.0|~5.1",
+                "illuminate/support": "~5.0|~5.1",
+                "php": ">=5.4.0"
+            },
+            "suggest": {
+                "league/fractal": "Required to use the Fractal Presenter (0.12.*).",
+                "prettus/laravel-validation": "Required to use the Repository Validators (1.1.*)",
+                "robclancy/presenter": "Required to use the Presenter Model (1.3.*)"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-develop": "2.1-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Prettus\\Repository\\": "src/Prettus/Repository/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Anderson Andrade",
+                    "email": "contato@andersonandra.de"
+                }
+            ],
+            "description": "Laravel 5 - Repositories to  the database layer",
+            "keywords": [
+                "cache",
+                "eloquent",
+                "laravel",
+                "model",
+                "repository"
+            ],
+            "time": "2015-09-11 11:26:57"
         },
         {
             "name": "psr/log",
@@ -2129,16 +2280,16 @@
         },
         {
             "name": "phpunit/php-code-coverage",
-            "version": "2.2.2",
+            "version": "2.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "2d7c03c0e4e080901b8f33b2897b0577be18a13c"
+                "reference": "ef1ca6835468857944d5c3b48fa503d5554cff2f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/2d7c03c0e4e080901b8f33b2897b0577be18a13c",
-                "reference": "2d7c03c0e4e080901b8f33b2897b0577be18a13c",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/ef1ca6835468857944d5c3b48fa503d5554cff2f",
+                "reference": "ef1ca6835468857944d5c3b48fa503d5554cff2f",
                 "shasum": ""
             },
             "require": {
@@ -2187,7 +2338,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2015-08-04 03:42:39"
+            "time": "2015-09-14 06:51:16"
         },
         {
             "name": "phpunit/php-file-iterator",
@@ -2320,16 +2471,16 @@
         },
         {
             "name": "phpunit/php-token-stream",
-            "version": "1.4.6",
+            "version": "1.4.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-token-stream.git",
-                "reference": "3ab72c62e550370a6cd5dc873e1a04ab57562f5b"
+                "reference": "3144ae21711fb6cac0b1ab4cbe63b75ce3d4e8da"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-token-stream/zipball/3ab72c62e550370a6cd5dc873e1a04ab57562f5b",
-                "reference": "3ab72c62e550370a6cd5dc873e1a04ab57562f5b",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-token-stream/zipball/3144ae21711fb6cac0b1ab4cbe63b75ce3d4e8da",
+                "reference": "3144ae21711fb6cac0b1ab4cbe63b75ce3d4e8da",
                 "shasum": ""
             },
             "require": {
@@ -2365,20 +2516,20 @@
             "keywords": [
                 "tokenizer"
             ],
-            "time": "2015-08-16 08:51:00"
+            "time": "2015-09-15 10:49:45"
         },
         {
             "name": "phpunit/phpunit",
-            "version": "4.8.6",
+            "version": "4.8.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "2246830f4a1a551c67933e4171bf2126dc29d357"
+                "reference": "521720279261e5b14799cf1bb895d4b55e516f26"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/2246830f4a1a551c67933e4171bf2126dc29d357",
-                "reference": "2246830f4a1a551c67933e4171bf2126dc29d357",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/521720279261e5b14799cf1bb895d4b55e516f26",
+                "reference": "521720279261e5b14799cf1bb895d4b55e516f26",
                 "shasum": ""
             },
             "require": {
@@ -2437,7 +2588,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2015-08-24 04:09:38"
+            "time": "2015-09-19 05:44:37"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -2918,7 +3069,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "bestmomo/scafold": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
