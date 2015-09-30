@@ -13,6 +13,27 @@ class UserTableSeeder extends Seeder
      */
     public function run()
     {
+        #Criação de usuário comum
+        factory(User::class, 1)->create(
+            [
+                'name' => 'User',
+                'email' => 'user@email.com',
+                'password' => bcrypt(1234),
+                'remember_token' => str_random(10),
+            ]
+        );
+
+        #Criação de usuário ADMIN
+        factory(User::class, 1)->create(
+            [
+                'name' => 'Admin',
+                'email' => 'admin@email.com',
+                'password' => bcrypt(1234),
+                'role' => 'admin',
+                'remember_token' => str_random(10),
+            ]
+        );
+
         factory(User::class, 10)->create()->each( function($u) {
             $u->client()->save(factory(Client::class)->make());
         });
