@@ -4,6 +4,7 @@ namespace CodeDelivery\Http\Controllers;
 
 use CodeDelivery\Http\Requests\AdminOrderRequest;
 use CodeDelivery\Repositories\CategoryRepository;
+use CodeDelivery\Repositories\ClientRepository;
 use CodeDelivery\Repositories\OrderItemRepository;
 use CodeDelivery\Repositories\OrderRepository;
 use CodeDelivery\Repositories\ProductRepository;
@@ -29,22 +30,29 @@ class OrdersController extends Controller
      * @var OrderItemRepository
      */
     private $repository_items;
+    /**
+     * @var ClientRepository
+     */
+    private $repository_client;
 
     /**
      * @param CategoryRepository|OrderRepository|ProductRepository $repository
      * @param OrderItemRepository $repository_items
      * @param ProductRepository $repository_product
+     * @param ClientRepository $repository_client
      * @param UserRepository $repository_user
      * @internal param CategoryRepository $repository_category
      */
     public function __construct(OrderRepository $repository, OrderItemRepository $repository_items,
-                                ProductRepository $repository_product, UserRepository $repository_user)
+                                ProductRepository $repository_product, ClientRepository $repository_client,
+                                UserRepository $repository_user)
     {
 
         $this->repository = $repository;
         $this->repository_product = $repository_product;
         $this->repository_user = $repository_user;
         $this->repository_items = $repository_items;
+        $this->repository_client = $repository_client;
     }
 
     public function index()
@@ -59,15 +67,13 @@ class OrdersController extends Controller
     public function show($id)
     {
         $order = $this->repository->find($id);
+        $client = $this->repository_user->find($order->client_id);
+        $deliveryman = $this->repository_user->find($order->user_deliveryman_id);
         $products = $this->repository_items->with('product')->findWhere(['order_id'=>$id]);
-        $client = $this->repository_user->with('client')->findWhere(['client_id'=>$order->client_id]);
-        $deliveryman = $this->repository_user->find($order->deliveryman_id);
 
+        #dd($deliveryman);
 
-        dd($products);
-
-
-        return view('admin.orders.edit', compact('order', 'deliverymen'));
+        return view('admin.orders.show', compact('order', 'products', 'client', 'deliveryman'));
     }
 
     public function edit($id)
@@ -87,13 +93,6 @@ class OrdersController extends Controller
     {
         $data = $request->all();
         $this->repository->update($data, $id);
-
-        return redirect()->route('admin.orders.index');
-    }
-
-    public function destroy($id)
-    {
-        $this->repository->delete($id);
 
         return redirect()->route('admin.orders.index');
     }

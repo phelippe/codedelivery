@@ -28,7 +28,6 @@
 				<td>
 					<a href="{{route('admin.orders.show', ['id'=>$order->id])}}" class="btn btn-default btn-sm">Itens</a>
 					<a href="{{route('admin.orders.edit', ['id'=>$order->id])}}" class="btn btn-default btn-sm">Editar</a>
-					<a href="{{route('admin.orders.destroy', ['id'=>$order->id])}}" class="btn btn-default btn-sm">Remover</a>
 				</td>
 			</tr>
 			@endforeach
