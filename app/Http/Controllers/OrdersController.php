@@ -58,10 +58,14 @@ class OrdersController extends Controller
 
     public function show($id)
     {
+        $order = $this->repository->find($id);
         $products = $this->repository_items->with('product')->findWhere(['order_id'=>$id]);
+        $client = $this->repository_user->with('client')->findWhere(['client_id'=>$order->client_id]);
+        $deliveryman = $this->repository_user->find($order->deliveryman_id);
 
-        #dd($products);
-        $deliverymen = $this->repository_user->lists();
+
+        dd($products);
+
 
         return view('admin.orders.edit', compact('order', 'deliverymen'));
     }
