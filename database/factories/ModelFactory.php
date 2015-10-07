@@ -47,7 +47,7 @@ $factory->define(CodeDelivery\Models\Client::class, function(Faker\Generator $fa
 $factory->define(CodeDelivery\Models\Order::class, function(Faker\Generator $faker) {
     return [
         #'client_id' => $faker->randomElement(\CodeDelivery\Models\User::all()->lists('id')),
-        'client_id' => \CodeDelivery\Models\User::all()->lists('id')->random(1),
+        'client_id' => \CodeDelivery\Models\Client::all()->lists('id')->random(1),
         #'user_deliveryman_id' => $faker->randomElement(\CodeDelivery\Models\User::all()->lists('id')),
         'user_deliveryman_id' => \CodeDelivery\Models\User::all()->lists('id')->random(1),
         'total' => $faker->randomFloat(6),

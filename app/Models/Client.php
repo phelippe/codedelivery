@@ -23,4 +23,8 @@ class Client extends Model implements Transformable
         return $this->hasOne(User::class, 'id', 'user_id');
     }
 
+    #@TODO: Arrumar isso aqui
+    /*public function orders(){
+        return $this->belongsToMany(Order::class, 'client_id', 'id');
+    }*/
 }

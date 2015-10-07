@@ -58,7 +58,7 @@ class OrdersController extends Controller
     public function index()
     {
         #$categories = $this->repository->all();
-        $orders = $this->repository->with('deliveryman', 'client')->all();
+        $orders = $this->repository->with(['deliveryman', 'client', 'itens'])->all();
 
         #dd($orders);
         return view('admin.orders.index', compact('orders'));
@@ -76,12 +76,19 @@ class OrdersController extends Controller
         return view('admin.orders.show', compact('order', 'products', 'client', 'deliveryman'));
     }
 
-    public function edit($id)
+    public function edit($id, UserRepository $userRepository)
     {
-        $order = $this->repository->find($id);
-        $deliverymen = $this->repository_user->lists();
+        $list_status = [
+            0=>'Pendente',
+            1=>'A caminho',
+            2=>'Entregue',
+            3=>'Cancelado',
+        ];
+        $order = $this->repository->with(['client', 'deliveryman', 'itens'])->find($id);
+        $deliveryman = $userRepository->getDeliverymen();
 
-        return view('admin.orders.edit', compact('order', 'deliverymen'));
+        #dd($order);
+        return view('admin.orders.edit', compact('order', 'list_status', 'deliveryman'));
     }
 
     /**

@@ -2,7 +2,13 @@
 
 @section('content')
 	<div class="container">
-		<h3>Editando pedido: {{$order->id}}</h3>
+		<h2>Editando pedido: #{{$order->id}} - R$ {{$order->total}}</h2>
+		<h3>Cliente: {{ $order->client->user->name }}</h3>
+		<h4>data: {{ $order->created_at}}</h4>
+		<p>
+			<b>Entregar em:</b><br/>
+			{{$order->client->address}} - {{$order->client->city}} - {{$order->client->state}}
+		</p>
 
 		@include('errors._check')
 
