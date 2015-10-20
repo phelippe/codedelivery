@@ -63,3 +63,10 @@ $factory->define(CodeDelivery\Models\OrderItem::class, function(Faker\Generator 
         'qtd' => $faker->randomNumber(6),
     ];
 });
+
+$factory->define(CodeDelivery\Models\Cupom::class, function(Faker\Generator $faker) {
+    return [
+        'code'=>$faker->randomNumber(4),
+        'value'=>$faker->randomNumber(2),
+    ];
+});

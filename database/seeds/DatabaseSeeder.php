@@ -17,7 +17,8 @@ class DatabaseSeeder extends Seeder
         $this->call(UserTableSeeder::class);
         $this->call(CategoryTableSeeder::class);
         $this->call(OrderTableSeeder::class);
-        $this->call(OrderItemTableSeeder::class);
+        $this->call(OrderItemTableSeeder::class); #feito por mim
+        $this->call(CupomTableSeeder::class);
 
         Model::reguard();
     }
