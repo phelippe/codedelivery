@@ -32,7 +32,7 @@ class ProductRepositoryEloquent extends BaseRepository implements ProductReposit
     }
 
     public function lists(){
-        $rtrn = $this->model->lists('name', 'id');
+        $rtrn = $this->model->get(['id', 'name', 'price']);
         return $rtrn;
     }
 }

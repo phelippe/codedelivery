@@ -20,8 +20,10 @@ class AuthController extends Controller
     | a simple trait to add these behaviors. Why don't you explore it?
     |
     */
-    protected $redirectPath = '/admin/products';
-    protected $redirectTo = '/admin/products';
+    /*protected $redirectPath = '/admin/products';
+    protected $redirectTo = '/admin/products';*/
+    protected $redirectPath = '/home';
+    protected $redirectTo = '/home';
 
     use AuthenticatesAndRegistersUsers, ThrottlesLogins;
 
