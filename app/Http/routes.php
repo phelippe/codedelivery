@@ -17,7 +17,7 @@ Route::get('/', function () {
 });
 
 Route::get('/home', function () {
-    return view('home');
+    return view('welcome');
 });
 
 Route::group(['prefix'=>'admin', 'middleware'=>'auth.checkrole', 'as'=>'admin.'], function(){
@@ -55,9 +55,9 @@ Route::group(['prefix'=>'admin', 'middleware'=>'auth.checkrole', 'as'=>'admin.']
     Route::post('cupoms/update/{id}', [ 'as'=>'cupoms.update', 'uses'=>'CupomsController@update']);
 
 });
-/*
+
 Route::group(['prefix'=>'customer', 'middleware'=>'auth.checkrole', 'as'=>'customer.'], function(){
     Route::get('order', [ 'as'=>'order.index', 'uses'=>'CheckoutController@index']);
     Route::get('order/create', [ 'as'=>'order.create', 'uses'=>'CheckoutController@create']);
     Route::post('order/store', [ 'as'=>'order.store', 'uses'=>'CheckoutController@store']);
-});*/
+});
