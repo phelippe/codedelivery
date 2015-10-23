@@ -14,7 +14,7 @@ class UserTableSeeder extends Seeder
     public function run()
     {
         #Criação de usuário comum
-        factory(User::class, 1)->create(
+        factory(User::class)->create(
             [
                 'name' => 'User',
                 'email' => 'user@email.com',
@@ -24,7 +24,7 @@ class UserTableSeeder extends Seeder
         )->client()->save(factory(Client::class)->make());
 
         #Criação de usuário ADMIN
-        factory(User::class, 1)->create(
+        factory(User::class)->create(
             [
                 'name' => 'Admin',
                 'email' => 'admin@email.com',

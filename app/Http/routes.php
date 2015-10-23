@@ -12,12 +12,12 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
     #return redirect('auth/login');
 });
 
 Route::get('/home', function () {
-    return view('welcome');
+    return view('home');
 });
 
 Route::group(['prefix'=>'admin', 'middleware'=>'auth.checkrole', 'as'=>'admin.'], function(){
@@ -56,7 +56,7 @@ Route::group(['prefix'=>'admin', 'middleware'=>'auth.checkrole', 'as'=>'admin.']
 
 });
 
-Route::group(['prefix'=>'customer', 'middleware'=>'auth.checkrole', 'as'=>'customer.'], function(){
+Route::group(['prefix'=>'customer', /*'middleware'=>'auth.checkrole',*/ 'as'=>'customer.'], function(){
     Route::get('order', [ 'as'=>'order.index', 'uses'=>'CheckoutController@index']);
     Route::get('order/create', [ 'as'=>'order.create', 'uses'=>'CheckoutController@create']);
     Route::post('order/store', [ 'as'=>'order.store', 'uses'=>'CheckoutController@store']);
