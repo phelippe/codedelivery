@@ -33,4 +33,8 @@ class Order extends Model implements Transformable
         return $this->belongsTo(Client::class, 'client_id', 'id');
     }
 
+    public function cupom(){
+        return $this->belongsTo(Cupom::class, 'cupom_id', 'id');
+    }
+
 }
