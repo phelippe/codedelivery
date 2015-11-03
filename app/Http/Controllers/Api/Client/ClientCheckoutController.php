@@ -55,7 +55,7 @@ class ClientCheckoutController extends Controller
         return $orders;
     }
 
-    public function store(Request $request)
+    public function store(Requests\AdminClientRequest $request)
     {
         $data = $request->all();
         $clientId = $this->userRepository->find(Auth::user()->id)->client->id;
