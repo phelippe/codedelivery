@@ -55,14 +55,17 @@ class ClientCheckoutController extends Controller
         return $orders;
     }
 
-    public function store(Requests\AdminClientRequest $request)
+    public function store(Requests\CheckoutRequest $request)
     {
         $data = $request->all();
-        $clientId = $this->userRepository->find(Auth::user()->id)->client->id;
+        $id_client = Authorizer::getResourceOwnerId();
+        $clientId = $this->userRepository->find($id_client)->client->id;
         $data['client_id'] = $clientId;
-        $this->service->create($data);
 
-        return redirect()->route('customer.order.index');
+        $o = $this->service->create($data);
+        $o = $this->repository->with(['itens'])->find($o->id);
+
+        return $o;
     }
 
     public function show($id){
