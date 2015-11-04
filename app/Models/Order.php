@@ -15,9 +15,17 @@ class Order extends Model implements Transformable
         'user_deliveryman_id',
         'total',
         'status',
+        'cupom_id'
     ];
 
-    public function itens(){
+    /*public function transform(){
+        return [
+            'order' => $this->id,
+            'items' => $this->items
+        ];
+    }*/
+
+    public function items(){
         return $this->hasMany(OrderItem::class);
     }
 

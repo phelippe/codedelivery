@@ -44,6 +44,11 @@ class OrderService
         \DB::beginTransaction();
         try {
             $data['status'] = 0;
+
+            if(isset($data['cupom_id'])){
+                unset($data['cupom_id']);
+            }
+
             if (isset($data['cupom_code'])) {
                 $cupom = $this->cupomRepository->findByField('code', $data['cupom_code'])->first();
                 $data['cupom_id'] = $cupom->id;
@@ -51,15 +56,15 @@ class OrderService
                 $cupom->save();
                 unset($data['cupom_code']);
             }
-            $itens = $data['items'];
+            $items = $data['items'];
             unset($data['items']);
 
             $order = $this->orderRepository->create($data);
             $total = 0;
 
-            foreach ($itens as $item) {
+            foreach ($items as $item) {
                 $item['price'] = $this->productRepository->find($item['product_id'])->price;
-                $order->itens()->create($item);
+                $order->items()->create($item);
                 $total += $item['price'] * $item['qtd'];
             }
 
@@ -71,6 +76,7 @@ class OrderService
 
             $order->save();
             \DB::commit();
+            return $order;
         } catch (\Exception $e ){
             \DB::rollback();
             throw $e;
