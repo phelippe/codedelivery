@@ -22,11 +22,13 @@ class ClientTransformer extends TransformerAbstract
     {
         return [
             'id'         => (int) $model->id,
-
-            /* place your other model properties here */
-
-            'created_at' => $model->created_at,
-            'updated_at' => $model->updated_at
+            'name'         => (int) $model->user->name,
+            'email'         => (int) $model->user->email,
+            'phone'         => (int) $model->address,
+            'address'         => (int) $model->address,
+            'zipcode'         => (int) $model->zipcode,
+            'city'         => (int) $model->city,
+            'state'         => (int) $model->state,
         ];
     }
 }

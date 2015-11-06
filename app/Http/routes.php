@@ -67,6 +67,12 @@ Route::post('oauth/access_token', function() {
 });
 
 Route::group(['prefix'=>'api', 'middleware'=>'oauth', 'as'=>'api.'], function(){
+    //Rotas isoladas devem vir antes dos resources!
+    Route::get('user/authenticated', 'UserController@authenticated');
+
+    Route::group(['prefix'=>'teste', 'middleware'=>'oauth', 'as'=>'teste.'], function() {
+
+    });
 
     Route::group(['prefix'=>'client', 'middleware'=>'oauth.checkrole:client', 'as'=>'client.'], function(){
         Route::resource('order', 'Api\Client\ClientCheckoutController', ['except' => ['create', 'edit', 'destroy']]);

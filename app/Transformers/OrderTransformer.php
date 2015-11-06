@@ -13,7 +13,7 @@ class OrderTransformer extends TransformerAbstract
 {
 
     #protected $defaultIncludes = ['cupom', 'items'];
-    protected $availableIncludes = ['cupom', 'items', 'client'];
+    protected $availableIncludes = ['cupom', 'items', 'client', 'deliveryman'];
 
     /**
      * Transform the \Order entity
@@ -26,11 +26,10 @@ class OrderTransformer extends TransformerAbstract
         return [
             'id'         => (int) $model->id,
             'total' => (float) $model->total,
+            'status' => (float) $model->status,
 
-            /* place your other model properties here */
-
-            'created_at' => $model->created_at,
-            'updated_at' => $model->updated_at
+            #'created_at' => $model->created_at,
+            #'updated_at' => $model->updated_at
         ];
     }
 
@@ -43,10 +42,14 @@ class OrderTransformer extends TransformerAbstract
         return $this->item($model->cupom, new CupomTransformer());
     }
 
-
     public function includeClient(Order $model)
     {
         return $this->item($model->client, new ClientTransformer());
+    }
+
+    public function includeDeliveryman(Order $model)
+    {
+        return $this->item($model->deliveryman, new DeliverymanTransformer());
     }
 
     //one to many -> orderItem

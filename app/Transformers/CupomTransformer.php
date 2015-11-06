@@ -22,6 +22,7 @@ class CupomTransformer extends TransformerAbstract
     {
         return [
             'id'         => (int) $model->id,
+            'code'         => (int) $model->code,
 
             /* place your other model properties here */
 

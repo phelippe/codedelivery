@@ -18,7 +18,7 @@ class OAuthTableSeeder extends Seeder
             [
                 'id' => 'appid1',
                 'secret' => 'secret',
-                'name' => 'IonicAPP',
+                'name' => 'Minha App Mobile',
                 'created_at' => $datetime,
                 'updated_at' => $datetime,
             ],

@@ -26,7 +26,7 @@ class ClientCheckoutController extends Controller
      */
     private $service;
 
-    private $with = ['client', 'cupom', 'items'];
+    private $with = ['client', 'cupom', 'items', 'deliveryman'];
 
     /**
      * @param CategoryRepository|OrderRepository $repository
@@ -49,10 +49,10 @@ class ClientCheckoutController extends Controller
         $clientId = $this->userRepository->find($user_id)->client->id;
         $orders = $this->repository
             ->skipPresenter(false)
-            #->with($this->with)
-            ->scopeQuery(function($query) use ($clientId){
-            return $query->where('client_id', '=', $clientId);
-        })->paginate();
+            ->with($this->with)
+            ->scopeQuery(function ($query) use ($clientId) {
+                return $query->where('client_id', '=', $clientId);
+            })->paginate();
 
         return $orders;
     }
@@ -72,7 +72,8 @@ class ClientCheckoutController extends Controller
             ->find($o->id);
     }
 
-    public function show($id){
+    public function show($id)
+    {
         #$order = $this->repository->with(['items', 'client', 'cupom'])->find($id);
 
         /*$order->items->each(function($item){
