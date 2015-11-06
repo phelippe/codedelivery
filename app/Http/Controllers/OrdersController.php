@@ -60,7 +60,6 @@ class OrdersController extends Controller
         #$categories = $this->repository->all();
         $orders = $this->repository->with(['deliveryman', 'client', 'items'])->all();
 
-        #dd($orders);
         return view('admin.orders.index', compact('orders'));
     }
 

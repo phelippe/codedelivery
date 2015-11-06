@@ -28,7 +28,7 @@
 				<td> {{$order->created_at}}</td>
 				<td>
 					<ul>
-						@foreach($order->itens as $item)
+						@foreach($order->items as $item)
 							<li>{{$item->product->name}}</li>
 						@endforeach
 					</ul>
