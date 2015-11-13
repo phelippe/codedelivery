@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
     <title></title>
@@ -19,66 +19,13 @@
     <script src="cordova.js"></script>
 
     <!-- your app's js -->
+    <script src="js/controllers/HomeController.js"></script>
     <script src="js/app.js"></script>
-  </head>
-  <body ng-app="starter">
-
-    <ion-pane>
-      <ion-header-bar class="bar-energized">
-        <a href="javascript:void(0)" class="button button-clear icon ion-arrow-left-c"></a>
-        <h1 class="title">Ionic Blank Starter</h1>
-        <a href="javascript:void(0)" class="button button-clear icon ion-navicon"></a>
-      </ion-header-bar>
-      <ion-header-bar class="bar-subheader bar-positive">
-        <h1 class="title title-left">Subheader</h1>
-      </ion-header-bar>
-
-      <ion-content class="padding has-subheader">
-
-        <ion-list show-delete="true">
-          <ion-item>
-            <ion-delete-button class="ion-minus-circled"></ion-delete-button>
-            Meu item 1
-          </ion-item>
-          <ion-item>
-            <ion-delete-button class="ion-minus-circled"></ion-delete-button>
-            Meu item 2
-          </ion-item>
-        </ion-list>
-
-        <a href="javascript:void(0)" class="button button-assertive button-block ion-fork icon-left">Meu primeiro botão</a>
-        <div class="button ion-checkmark icon-left">Meu botão com div</div>
-        <button class="button button-positive button-small">Meu botão pequeno</button>
-        <button class="button button-dark button-large button-outline">Meu botão grande</button>
-        <br/><br/>
-        <button class="button button-assertive">
-          <i class="icon ion-alert"></i> Meu botão pequeno
-        </button>
-        <button class="button button-calm button-outline">
-          <i class="icon ion-alert"></i> Meu botão pequeno
-        </button>
-
-      </ion-content>
-
-      <!--<ion-footer-bar class="bar-positive">
-        <h1 class="title">Menu footer</h1>
-      </ion-footer-bar>-->
-      <ion-tabs class="tabs-positive tabs-icon-only">
-
-        <ion-tab title="Home" icon-on="ion-ios-filing" icon-off="ion-ios-filing-outline">
-          <!-- Tab 1 content -->
-        </ion-tab>
-
-        <ion-tab title="About" icon-on="ion-ios-clock" icon-off="ion-ios-clock-outline">
-          <!-- Tab 2 content -->
-        </ion-tab>
-
-        <ion-tab title="Settings" icon-on="ion-ios-gear" icon-off="ion-ios-gear-outline">
-          <!-- Tab 3 content -->
-        </ion-tab>
-
-      </ion-tabs>
-
-    </ion-pane>
-  </body>
+</head>
+<body ng-app="starter">
+    <ion-header-bar class="bar bar-positive">
+        <h1 class="title">Minhas rotas</h1>
+    </ion-header-bar>
+    <ion-nav-view class="padding"></ion-nav-view>
+</body>
 </html>
