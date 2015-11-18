@@ -2,9 +2,9 @@
 
 namespace CodeDelivery\Http\Controllers;
 
-use CodeDelivery\Http\Requests\AdminOrderRequest;
 use CodeDelivery\Http\Requests;
 use CodeDelivery\Repositories\UserRepository;
+use LucaDegasperi\OAuth2Server\Facades\Authorizer;
 
 class UserController extends Controller
 {
