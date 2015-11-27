@@ -16,14 +16,14 @@ class OrderItemTransformer extends TransformerAbstract
     public function transform(OrderItem $model)
     {
         return [
-            'id'         => (int) $model->id,
+            #'id'         => (int) $model->id,
             'price'         => (int) $model->price,
             'qtd'         => (int) $model->qtd,
 
             /* place your other model properties here */
 
-            'created_at' => $model->created_at,
-            'updated_at' => $model->updated_at
+            #'created_at' => $model->created_at,
+            #'updated_at' => $model->updated_at
         ];
     }
 

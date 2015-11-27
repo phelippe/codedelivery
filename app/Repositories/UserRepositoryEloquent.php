@@ -2,9 +2,9 @@
 
 namespace CodeDelivery\Repositories;
 
+use CodeDelivery\Presenters\UserPresenter;
 use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
-use CodeDelivery\Repositories\UserRepository;
 use CodeDelivery\Models\User;
 
 /**
@@ -40,4 +40,8 @@ class UserRepositoryEloquent extends BaseRepository implements UserRepository
         return $this->model->lists('name', 'id');
     }
 
+    public function presenter()
+    {
+        return UserPresenter::class;
+    }
 }

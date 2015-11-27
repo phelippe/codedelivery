@@ -19,6 +19,7 @@ class CheckoutRequest extends Request
     /**
      * Get the validation rules that apply to the request.
      *
+     * @param HttpRequest $request
      * @return array
      */
     public function rules(HttpRequest $request)
@@ -37,7 +38,6 @@ class CheckoutRequest extends Request
         foreach($items as $key => $val){
             $this->buildRulesitems($key, $rules);
         }
-
         return $rules;
     }
 
