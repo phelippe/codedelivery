@@ -63,7 +63,7 @@ Route::group(['prefix'=>'customer', /*'middleware'=>'auth.checkrole',*/ 'as'=>'c
     Route::post('order/store', [ 'as'=>'order.store', 'uses'=>'CheckoutController@store']);
 });
 
-Route::group(['middleware'=>'cors'], function(){
+#Route::group(['middleware'=>'cors'], function(){
 
     Route::post('oauth/access_token', function() {
         return Response::json(Authorizer::issueAccessToken());
@@ -85,4 +85,4 @@ Route::group(['middleware'=>'cors'], function(){
             Route::patch('order/{id}/update-status', ['uses'=>'Api\Deliveryman\DeliverymanCheckoutController@updateStatus', 'as'=>'orders.update_status']);
         });
     });
-});
+#});

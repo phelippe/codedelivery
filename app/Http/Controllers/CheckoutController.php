@@ -2,6 +2,7 @@
 
 namespace CodeDelivery\Http\Controllers;
 
+use CodeDelivery\Http\Requests\CheckoutRequest;
 use CodeDelivery\Repositories\CategoryRepository;
 use CodeDelivery\Http\Requests;
 use CodeDelivery\Repositories\OrderRepository;
@@ -52,7 +53,7 @@ class CheckoutController extends Controller
     public function index()
     {
         #dd(Auth::user()->id);
-        $clientId = $this->userRepository->find(Auth::user()->id)->client->id;
+        $clientId = $this->userRepository->skipPresenter()->find(Auth::user()->id)->client->id;
         #dd($clientId);
         $orders = $this->repository->scopeQuery(function($query) use ($clientId){
             return $query->where('client_id', '=', $clientId);
@@ -68,10 +69,10 @@ class CheckoutController extends Controller
         return view('customer.order.create', compact('products'));
     }
 
-    public function store(Requests\CheckoutRequest $request)
+    public function store(CheckoutRequest $request)
     {
         $data = $request->all();
-        $clientId = $this->userRepository->find(Auth::user()->id)->client->id;
+        $clientId = $this->userRepository->skipPresenter()->find(Auth::user()->id)->client->id;
         $data['client_id'] = $clientId;
         $this->service->create($data);
 
