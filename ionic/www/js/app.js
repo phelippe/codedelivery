@@ -45,7 +45,8 @@ angular.module('starter',
                 url: '/home',
                 templateUrl: 'templates/home.html',
                 controller: 'HomeCtrl',
-            });
+            })
+        ;
 
         //$urlRouterProvider.otherwise('/');
     });
