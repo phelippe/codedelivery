@@ -24,11 +24,11 @@ class OrderTransformer extends TransformerAbstract
     public function transform(Order $model)
     {
         return [
-            'id'         => (int) $model->id,
+            #'id'         => (int) $model->id,
             'total' => (float) $model->total,
             'status' => (float) $model->status,
 
-            #'created_at' => $model->created_at,
+            'created_at' => $model->created_at,
             #'updated_at' => $model->updated_at
         ];
     }
